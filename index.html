@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Davide Malaguti – CV</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --text: #1d1d1f;
+    --secondary: #6e6e73;
+    --tertiary: #aeaeb2;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --radius: 18px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.07);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,0.1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg); color:var(--text);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+
+  /* NAV */
+  nav {
+    position:sticky; top:0; z-index:100;
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    background:rgba(245,245,247,0.82);
+    border-bottom:1px solid var(--border);
+    padding:0 24px;
+  }
+  .nav-inner {
+    max-width:900px; margin:0 auto; height:52px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .nav-name { font-size:15px; font-weight:600; letter-spacing:-0.01em; white-space:nowrap; }
+  .nav-links { display:flex; align-items:center; gap:4px; }
+  .nav-link {
+    font-size:13px; font-weight:500; color:var(--secondary);
+    text-decoration:none; padding:5px 11px; border-radius:20px;
+    transition:background 0.2s, color 0.2s; white-space:nowrap;
+  }
+  .nav-link:hover { background:rgba(0,0,0,0.06); color:var(--text); }
+  .nav-download {
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:13px; font-weight:500; color:#fff;
+    background:var(--accent); text-decoration:none;
+    padding:6px 14px; border-radius:20px;
+    transition:background 0.2s, transform 0.15s; white-space:nowrap;
+  }
+  .nav-download:hover { background:var(--accent-hover); transform:scale(1.02); }
+  .nav-download svg { width:13px; height:13px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:56px 24px 100px; }
+
+  /* HERO */
+  .hero {
+    text-align:center; padding:64px 0 72px;
+    animation:fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow {
+    display:inline-block; font-size:13px; font-weight:500; color:var(--accent);
+    letter-spacing:0.04em; margin-bottom:16px;
+    background:rgba(0,113,227,0.08); padding:5px 14px; border-radius:20px;
+  }
+  .hero h1 {
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:clamp(52px,9vw,88px); font-weight:400;
+    line-height:1.0; letter-spacing:-0.03em; margin-bottom:20px;
+  }
+  .hero-sub {
+    font-size:19px; font-weight:300; color:var(--secondary);
+    line-height:1.5; max-width:520px; margin:0 auto 40px;
+  }
+  .hero-contacts { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+  .contact-pill {
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:14px; font-weight:500; color:var(--text);
+    text-decoration:none; background:var(--surface);
+    border:1px solid var(--border); padding:9px 18px; border-radius:100px;
+    box-shadow:var(--shadow); transition:box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  }
+  .contact-pill:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); border-color:rgba(0,0,0,0.14); }
+  .contact-pill svg { width:15px; height:15px; stroke:var(--accent); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+
+  /* DOWNLOAD BANNER */
+  .download-banner {
+    background:linear-gradient(135deg,#1d1d1f 0%,#2d2d2f 100%);
+    border-radius:var(--radius); padding:32px 36px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    margin-bottom:56px; animation:fadeUp 0.7s 0.1s ease both; flex-wrap:wrap;
+  }
+  .banner-label { font-size:12px; font-weight:500; color:rgba(255,255,255,0.45); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px; }
+  .banner-title { font-size:22px; font-weight:600; color:#fff; margin-bottom:4px; }
+  .banner-desc { font-size:14px; color:rgba(255,255,255,0.5); font-weight:300; }
+  .btn-download {
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:15px; font-weight:600; color:#1d1d1f; background:#fff;
+    text-decoration:none; padding:12px 24px; border-radius:100px;
+    transition:transform 0.15s, box-shadow 0.2s; white-space:nowrap; flex-shrink:0;
+  }
+  .btn-download:hover { transform:scale(1.04); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+  .btn-download svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* SECTIONS */
+  section { margin-bottom:64px; animation:fadeUp 0.6s ease both; }
+  section:nth-child(2){animation-delay:0.05s} section:nth-child(3){animation-delay:0.1s}
+  section:nth-child(4){animation-delay:0.15s} section:nth-child(5){animation-delay:0.2s}
+  section:nth-child(6){animation-delay:0.25s} section:nth-child(7){animation-delay:0.3s}
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-header { display:flex; align-items:baseline; gap:14px; margin-bottom:24px; }
+  .section-title { font-family:'DM Serif Display',serif; font-size:32px; font-weight:400; letter-spacing:-0.02em; }
+  .section-line { flex:1; height:1px; background:var(--border); }
+
+  /* ABOUT */
+  .about-card { background:var(--surface); border-radius:var(--radius); padding:32px 36px; box-shadow:var(--shadow); }
+  .about-text { font-size:17px; line-height:1.7; color:var(--secondary); font-weight:300; max-width:700px; }
+
+  /* EXPERIENCE */
+  .exp-list { display:flex; flex-direction:column; gap:16px; }
+  .exp-card {
+    background:var(--surface); border-radius:var(--radius); padding:28px 32px;
+    box-shadow:var(--shadow); transition:box-shadow 0.25s, transform 0.2s;
+    position:relative; overflow:hidden;
+  }
+  .exp-card::after {
+    content:''; position:absolute; left:0; top:24px; bottom:24px; width:3px;
+    background:var(--accent); border-radius:0 2px 2px 0;
+    opacity:0; transform:scaleY(0.5); transition:opacity 0.25s, transform 0.25s;
+  }
+  .exp-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+  .exp-card:hover::after { opacity:1; transform:scaleY(1); }
+  .exp-top { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:4px; flex-wrap:wrap; }
+  .exp-company { font-size:17px; font-weight:600; }
+  .exp-badge { font-size:11px; font-weight:500; color:var(--accent); background:rgba(0,113,227,0.08); padding:3px 10px; border-radius:100px; white-space:nowrap; }
+  .exp-role { font-size:13px; font-weight:500; color:var(--tertiary); margin-bottom:16px; letter-spacing:0.02em; }
+  .exp-bullets { list-style:none; display:flex; flex-direction:column; gap:7px; }
+  .exp-bullets li { font-size:14px; color:var(--secondary); line-height:1.6; padding-left:16px; position:relative; font-weight:300; }
+  .exp-bullets li::before { content:'·'; position:absolute; left:4px; color:var(--accent); font-size:18px; line-height:1.35; }
+
+  /* EDUCATION */
+  .edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .edu-card { background:var(--surface); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); transition:box-shadow 0.25s, transform 0.2s; }
+  .edu-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+  .edu-icon { width:40px; height:40px; background:rgba(0,113,227,0.08); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .edu-icon svg { width:20px; height:20px; stroke:var(--accent); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .edu-degree { font-size:15px; font-weight:600; line-height:1.4; margin-bottom:6px; }
+  .edu-school { font-size:13px; color:var(--secondary); margin-bottom:12px; }
+  .edu-date { font-size:12px; font-weight:500; color:var(--accent); background:rgba(0,113,227,0.08); display:inline-block; padding:2px 10px; border-radius:20px; }
+
+  /* SKILLS */
+  .skills-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .skills-card { background:var(--surface); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); }
+  .skills-card-title { font-size:12px; font-weight:600; color:var(--tertiary); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px; }
+  .tag-row { display:flex; flex-wrap:wrap; gap:8px; }
+  .tag { font-size:13px; font-weight:500; color:var(--text); background:var(--bg); border:1px solid var(--border); padding:6px 14px; border-radius:100px; transition:background 0.2s, border-color 0.2s, color 0.2s; cursor:default; }
+  .tag:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+
+  /* INFO */
+  .three-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .info-card { background:var(--surface); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
+  .info-card-label { font-size:11px; font-weight:600; color:var(--tertiary); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
+  .info-card-val { font-size:17px; font-weight:600; margin-bottom:2px; }
+  .info-card-sub { font-size:13px; color:var(--secondary); font-weight:300; }
+  .lang-bar { display:flex; align-items:center; gap:8px; margin-top:6px; }
+  .lang-name { font-size:15px; font-weight:600; }
+  .lang-level { font-size:11px; font-weight:600; color:var(--accent); background:rgba(0,113,227,0.08); padding:2px 10px; border-radius:20px; }
+
+  /* INTERESTS */
+  .interest-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .interest-card { background:var(--surface); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow); display:flex; gap:16px; align-items:flex-start; transition:box-shadow 0.25s, transform 0.2s; }
+  .interest-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+  .interest-emoji { font-size:26px; line-height:1; flex-shrink:0; margin-top:2px; }
+  .interest-title { font-size:15px; font-weight:600; margin-bottom:5px; }
+  .interest-desc { font-size:13px; color:var(--secondary); line-height:1.55; font-weight:300; }
+
+  /* FOOTER */
+  footer { text-align:center; padding-top:48px; border-top:1px solid var(--border); color:var(--tertiary); font-size:13px; }
+
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .edu-grid,.skills-grid,.interest-grid{grid-template-columns:1fr}
+    .three-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .hero h1{font-size:52px}
+    .download-banner{padding:24px}
+    .about-card,.exp-card{padding:22px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Davide Malaguti</span>
+    <div class="nav-links">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#education">Education</a>
+      <a class="nav-link" href="#skills">Skills</a>
+    </div>
+    <a class="nav-download" href="CV_2k26.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Junior Computer Engineer · Class of 2026</div>
+    <h1>Davide<br>Malaguti</h1>
+    <p class="hero-sub">Background in electronics, passionate about R&D, data analysis, IoT, and autonomous systems.</p>
+    <div class="hero-contacts">
+      <a class="contact-pill" href="tel:+393335621520">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.14 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +39 333 562 1520
+      </a>
+      <a class="contact-pill" href="mailto:davide.malaguti03@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        davide.malaguti03@gmail.com
+      </a>
+      <span class="contact-pill" style="cursor:default;">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Formigine (MO), Italy
+      </span>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD BANNER -->
+  <div class="download-banner">
+    <div>
+      <div class="banner-label">Original Document</div>
+      <div class="banner-title">Curriculum Vitae — PDF</div>
+      <div class="banner-desc">Full printable version, ready to share.</div>
+    </div>
+    <a class="btn-download" href="CV_2k26.pdf" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-card">
+      <p class="about-text">Junior Computer Engineer with a background in electronics and a strong interest in research &amp; development, data analysis, and IoT. Experience in multidisciplinary technical environments — most notably the Formula Student Driverless project — and a proactive attitude toward teamwork, leadership, and organisation. Highly motivated to grow professionally and contribute to innovative projects in technology, sport-tech, and sustainability.</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">MoRe Modena Racing – Formula Student Driverless</div>
+          <div class="exp-badge">Oct 2024 – Jul 2025</div>
+        </div>
+        <div class="exp-role">Technical Team Member · Modena, Italy</div>
+        <ul class="exp-bullets">
+          <li>R&amp;D on localisation and control systems for an autonomous vehicle within a Formula Student Driverless project.</li>
+          <li>Data acquisition and management from multiple sensors — GPS, LiDAR, IMU — for position estimation, odometry, and vehicle control support.</li>
+          <li>Performance analysis and trajectory optimisation, contributing to improved system reliability and efficiency.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">Decathlon Italia</div>
+          <div class="exp-badge">Oct 2023 – Feb 2024</div>
+        </div>
+        <div class="exp-role">Sales Assistant · Modena, Italy</div>
+        <ul class="exp-bullets">
+          <li>Sales and customer service activities in a high-traffic retail environment.</li>
+          <li>Teamwork and priority management in a fast-paced, dynamic context.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="edu-degree">Bachelor's in Computer Engineering</div>
+        <div class="edu-school">University of Modena e Reggio Emilia</div>
+        <div class="edu-date">Sep 2022 – Feb 2026</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="edu-degree">Technical Diploma in Electronics &amp; Automation</div>
+        <div class="edu-school">ITIS E. Fermi – Modena</div>
+        <div class="edu-date">Sep 2017 – Jul 2022</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-card">
+        <div class="skills-card-title">Programming Languages</div>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+          <span class="tag">C#</span>
+          <span class="tag">Java</span>
+        </div>
+      </div>
+      <div class="skills-card">
+        <div class="skills-card-title">Soft Skills</div>
+        <div class="tag-row">
+          <span class="tag">Teamwork</span>
+          <span class="tag">Problem Solving</span>
+          <span class="tag">Curiosity</span>
+          <span class="tag">Leadership</span>
+          <span class="tag">Adaptability</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO & LANGUAGES -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Info &amp; Languages</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="three-grid">
+      <div class="info-card">
+        <div class="info-card-label">Personal</div>
+        <div class="info-card-val">5 Nov 2003</div>
+        <div class="info-card-sub">Sassuolo (MO) · Italian</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Driver Licence</div>
+        <div class="info-card-val">Category B</div>
+        <div class="info-card-sub">Full driving licence</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Languages</div>
+        <div class="lang-bar"><span class="lang-name">Italiano</span><span class="lang-level">Native</span></div>
+        <div class="lang-bar"><span class="lang-name">English</span><span class="lang-level">B2</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Activities &amp; Interests</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="interest-grid">
+      <div class="interest-card">
+        <div class="interest-emoji">⚜️</div>
+        <div>
+          <div class="interest-title">Scouting — AGESCI (14+ years)</div>
+          <div class="interest-desc">Developed strong interpersonal skills, sense of service, responsibility, and a problem-solving mindset in situations requiring adaptability and collaboration.</div>
+        </div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-emoji">🏊</div>
+        <div>
+          <div class="interest-title">Sport</div>
+          <div class="interest-desc">Triathlon, ultimate frisbee — also active as a coach. Sport is central to both my personal and professional development.</div>
+        </div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-emoji">🖨️</div>
+        <div>
+          <div class="interest-title">3D Printing &amp; Prototyping</div>
+          <div class="interest-desc">Hands-on experimentation with materials and rapid prototyping, with a growing focus on applied R&amp;D and sustainability.</div>
+        </div>
+      </div>
+      <div class="interest-card">
+        <div class="interest-emoji">📷</div>
+        <div>
+          <div class="interest-title">Photography &amp; Videomaking</div>
+          <div class="interest-desc">Passionate about visual storytelling — capturing meaningful moments and sharing experiences through creative media.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Davide Malaguti · Formigine (MO), Italy</p>
+  </footer>
+
+</main>
+</body>
+</html>
